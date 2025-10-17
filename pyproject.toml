@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "senderbot"
+version = "0.1.0"
+description = "Async Telegram sender bot with session management and job orchestration"
+authors = [{name = "Sender Bot Maintainers", email = "maintainers@example.com"}]
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = [
+    "telethon>=1.35.0",
+    "aiosqlite>=0.20.0",
+    "asyncpg>=0.29.0",
+    "pydantic>=2.7.0",
+    "python-dotenv>=1.0.1",
+    "typer>=0.12.3",
+    "rich>=13.7.0",
+    "alembic>=1.13.1",
+    "python-dateutil>=2.8.2",
+    "aiofiles>=23.2.1"
+]
+
+[project.optional-dependencies]
+development = [
+    "pytest>=8.2.0",
+    "pytest-asyncio>=0.23.6",
+    "pytest-mock>=3.12.0",
+    "freezegun>=1.5.1"
+]
+
+[project.scripts]
+senderbot = "senderbot.cli:app"
+
+[tool.pytest.ini_options]
+addopts = "-q"
